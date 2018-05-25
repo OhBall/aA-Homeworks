@@ -15,7 +15,7 @@ class Map
 
   def lookup(k)
     entry = map.select{|tuple| tuple[0] == k}
-    entry.empty? ? nil : entry.last
+    entry.empty? ? nil : entry[0].last
   end
 
   def remove(k)
@@ -46,4 +46,8 @@ if __FILE__ == $PROGRAM_NAME
   a.remove('i')
   a.remove('s')
   p a.show
+  puts "------------------"
+  p a.lookup('a')
+  p a.lookup('d')
+  p a.lookup(12)
 end
