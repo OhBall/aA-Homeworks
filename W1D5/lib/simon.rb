@@ -10,8 +10,9 @@ class Simon
   end
 
   def play
+    system ("clear")
     puts "Hi, I'm Simon. Let's play a game."
-    sleep(1)
+    sleep(2)
     until game_over
       take_turn
     end
@@ -20,6 +21,7 @@ class Simon
   end
 
   def take_turn
+    system ("clear")
     show_sequence
     system "clear"
     require_sequence
@@ -33,11 +35,12 @@ class Simon
 
   def show_sequence
     add_random_color
-    puts "Sequence:"
-      self.seq.each do |color|
-        print "#{color} "
-        sleep(1)
-      end
+    puts "Simon says:"
+    sleep(1)
+    self.seq.each do |color|
+      print "#{color} "
+      sleep(1)
+    end
   end
 
   def require_sequence
@@ -57,10 +60,16 @@ class Simon
 
   def round_success_message
     puts "Well done. Moving on to level #{sequence_length}"
+    sleep(1)
   end
 
   def game_over_message
-    puts "Game over. You got to level #{sequence_length}."
+    system "clear"
+    puts "Simon says:"
+    sleep(1)
+    puts "Lose."
+    sleep(1)
+    puts "You got to level #{sequence_length}."
   end
 
   def reset_game
