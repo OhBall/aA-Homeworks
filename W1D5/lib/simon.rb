@@ -11,6 +11,7 @@ class Simon
 
   def play
     puts "Hi, I'm Simon. Let's play a game."
+    sleep(1)
     until game_over
       take_turn
     end
