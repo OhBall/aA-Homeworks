@@ -15,22 +15,23 @@ class Simon
       take_turn
     end
     game_over_message
-
+    reset_game
   end
 
   def take_turn
-    add_random_color
     show_sequence
     system "clear"
     require_sequence
 
     unless game_over
       round_success_message
+      self.sequence_length += 1
     end
-    self.sequence_length += 1
+
   end
 
   def show_sequence
+    add_random_color
     puts "Sequence:"
       self.seq.each do |color|
         print "#{color} "
@@ -39,9 +40,9 @@ class Simon
   end
 
   def require_sequence
-    Print "Now you try: "
+    print "Now you try: "
     input = gets.chomp
-    input_sequence = input.delete(" ").split{""}
+    input_sequence = input.split{" "}
     self.game_over = true unless input_sequence == self.seq
   end
 
