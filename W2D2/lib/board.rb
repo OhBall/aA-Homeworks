@@ -65,5 +65,12 @@ class Board
   end
 
   def winner
+    if self.cups[6].length == self.cups[13].length
+      :draw
+    elsif self.cups[6].length > self.cups[13].length
+      @name1
+    else
+      @name2
+    end
   end
 end
