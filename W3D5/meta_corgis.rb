@@ -1,3 +1,4 @@
+require 'byebug'
 class SnackBox
   SNACK_BOX_DATA = {
     1 => {
@@ -109,12 +110,29 @@ class MetaCorgiSnacks
     @box_id = box_id
   end
 
-  def method_missing(name, *args)
-    # Your code goes here...
-  end
+  # def method_missing(name, *args)
+  #   if [:bone,:kibble,:treat].include?(name)
+  #     info = @snack_box.send("get_#{name}_info", @box_id)
+  #     tastiness = @snack_box.send("get_#{name}_tastiness", @box_id)
+  #     result = "Kibble: #{info}: #{tastiness} "
+  #     tastiness > 30 ? "* #{result}" : result
+  #   else
+  #     raise NoMethodError
+  #   end
+  # end
 
 
   def self.define_snack(name)
-    # Your code goes here...
+    define_method(name) {
+      info = @snack_box.send("get_#{name}_info", @box_id)
+      tastiness = @snack_box.send("get_#{name}_tastiness", @box_id)
+      result = "Kibble: #{info}: #{tastiness} "
+      tastiness > 30 ? "* #{result}" : result
+    }
   end
+
+  MetaCorgiSnacks.define_snack(:kibble)
+  MetaCorgiSnacks.define_snack(:bone)
+  MetaCorgiSnacks.define_snack(:treat)
+
 end
