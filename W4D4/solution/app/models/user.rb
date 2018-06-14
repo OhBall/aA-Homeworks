@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint(8)        not null, primary key
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  username        :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   # If a password was set, we validate it meets the requirements.

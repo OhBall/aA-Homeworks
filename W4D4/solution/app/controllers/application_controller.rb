@@ -31,4 +31,9 @@ class ApplicationController < ActionController::Base
   def require_user!
     redirect_to new_session_url if current_user.nil?
   end
+
+  def auth_token
+    "#{from_authenticity_token}".html_safe
+  end
+
 end
