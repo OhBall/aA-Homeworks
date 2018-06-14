@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   # Expose current_user method to the views
   helper_method :current_user
   helper_method :logged_in?
+  helper_method :auth_token
 
   private
   def require_no_user!
@@ -33,7 +34,7 @@ class ApplicationController < ActionController::Base
   end
 
   def auth_token
-    "#{from_authenticity_token}".html_safe
+    "#{form_authenticity_token}".html_safe
   end
 
 end
