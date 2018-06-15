@@ -1,0 +1,16 @@
+<h1><%= @track.title %></h1>
+
+<% @track.attributes.each do |k,v| %>
+<% case k %>
+<% when "id", "created_at", "updated_at"  %>
+<% when "album_id" %>
+  <%= "Album: #{Album.find(@track.album_id).title}" %>
+<% when "bonus?" %>
+  <%="Track type: " + (v ? "bonus" : "regular") %>
+<% else %>
+<%= "#{k}: #{v}" %>
+<% end %>
+ <br>
+<% end %>
+
+<a href=" <%= album_url(@track.album_id) %> ">Back to Album</a>

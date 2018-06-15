@@ -1,0 +1,12 @@
+<h1>Bands Index</h1>
+
+<ul>
+<% Band.all.each do |band| %>
+  <li> <a href="<%= band_url(band.id) %>"><%= band.name %></a> </li>
+<% end %>
+<br>
+<div id="creations">
+  <a href="<%= new_band_url %>">Add a Band</a>
+  <a href="<%= new_album_url %>">Add an Album</a>
+</div
+</ul>

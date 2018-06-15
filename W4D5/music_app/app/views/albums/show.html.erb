@@ -1,0 +1,27 @@
+<h1> <%= @album.title %> </h1>
+
+<% @album.attributes.each do |k, v| %>
+  <% case k %>
+  <% when "id", "created_at", "updated_at"  %>
+  <% when "band_id" %>
+    <%= "Band: #{Band.find(@album.band_id).name}" %>
+  <% when "live?" %>
+    <%="Recorded " + (v ? "live" : "in studio") %>
+  <% else %>
+  <%= "#{k}: #{v}" %>
+  <% end %>
+   <br>
+<% end %>
+
+<label for="tracks">Tracks</label>
+<ul class="tracks">
+  <% @album.tracks.each do |track| %>
+    <li><%=  track.title %></li>
+  <% end %>
+</ul>
+
+<a href=" <%= band_url(@album.band_id) %> ">Back to Band</a>
+
+<a href=" <%= edit_album_url %> "> Edit Album </a>
+
+<a href=" <%= new_track_url %> ">Add a Track</a>

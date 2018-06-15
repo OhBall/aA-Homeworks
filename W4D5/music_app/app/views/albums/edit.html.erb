@@ -1,0 +1,38 @@
+<h1> <%= @album.title %> </h1>
+
+<form class="" action="<%= album_url(@album) %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <%= auth_token %>
+  <label for="album_title">Title</label>
+  <input class="album_title" type="text" name="album[title]" value=" <%=@album.title %>">
+  <br>
+  <label for="album_artist">Artist</label>
+  <select class="album_artist" name="album[band_id]">
+    <% Band.all.each do |band| %>
+      <option value="<%=band.id%>"
+        <%= "selected" if band.id == @album.band_id %> >
+         <%= band.name %>
+      </option>
+    <% end %>
+  </select>
+  <br>
+  <label for="album_year">Year</label>
+  <input class="album_year"type="integer" name="album[year]" value="<%= @album.year %>">
+  <br>
+  <label for="live">Live</label>
+  <input class="live" type="radio" name="album[live?]"
+    <%= "checked= \"checked\"".html_safe if @album.live? %> value="Live">
+  <label for="studio">Studio</label>
+  <input class="studio" type="radio" name="album[live?]"
+    <%= "checked= \"checked\"".html_safe unless @album.live? %> value="Studio">
+  <br>
+  <input type="submit" name="" value="Submit Album Changes">
+</form>
+<br>
+<br>
+<br>
+<form class="" action=" <% album_url(@album) %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <%= auth_token %>
+  <input type="submit" value="Delete this Album">
+</form>
