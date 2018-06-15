@@ -41,6 +41,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'pry-rails'
   gem 'annotate'
+<<<<<<< HEAD
   gem 'factory_bot_rails', :require => false
   gem 'faker'
   gem 'launchy'
@@ -50,6 +51,8 @@ end
 
 group :test do
 
+=======
+>>>>>>> master
 end
 
 group :development do
