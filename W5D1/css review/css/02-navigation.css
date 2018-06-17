@@ -1,7 +1,7 @@
 /* PHASE 2: Navigation */
 
 .header-logo {
-
+  float: left;
 }
 
 .header-logo:hover {
@@ -13,7 +13,7 @@
 }
 
 .header-list > li {
-
+  float: right;
 }
 
 .header-list > li:hover {
