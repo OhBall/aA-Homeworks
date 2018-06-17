@@ -12,8 +12,7 @@ body {
 
 .header {
   background-color: red;
-  border-bottom-color: #ccc;
-  border-bottom-width: 1px;
+  border-bottom: 1px solid #ccc;
   color: white;
 }
 
