@@ -69,6 +69,11 @@ View.prototype.exercise5 = function () {
   //  'data-pos' of every square
 
   //your code here!
+  function alertFunc(event){
+    const pos = $(event.currentTarget).data("pos");
+    alert(pos);
+  }
+  $('ul').on('click','li',alertFunc);
 };
 
 View.prototype.exercise6 = function () {
