@@ -84,6 +84,10 @@ View.prototype.exercise6 = function () {
   //hint: use window._randomColorString() (defined at top) to get a random color!
 
   //your code here!
+  function callback(index, el){
+    $(el).css("background-color", window._randomColorString());
+  }
+  $.each($('li'), callback);
 };
 
 View.prototype.exercise7 = function(){
@@ -94,6 +98,12 @@ View.prototype.exercise7 = function(){
   //rainbow.
 
   //your code here!
+  function callback(event){
+    const square = $(event.currentTarget);
+    const color = square.css("background-color");
+    console.log(color);
+  }
+  $('ul').on('mouseenter', 'li', callback);
 };
 
 
